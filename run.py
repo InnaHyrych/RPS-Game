@@ -1,3 +1,5 @@
+import random
+from enum import IntEnum
 
 
 def name():
@@ -13,18 +15,19 @@ def name():
 
 def main():
     """
-    Run all program functions  
+    Run all program functions
     """
     print('     Rock Paper Scissors\n')
     print('--------------------------------\n')
     user_name = name()    
     print(f'Hi, {user_name}, Welcome to our game!\n')
-    print('You need to make your choice - Rock, paper, or scissors.\n')
     print('     Remember:\n')
     print('* Rock wins against scissors.\n')
     print('* Scissors win against paper.\n')
     print('* Paper wins against rock.\n')
-    print('Lets play!\n')
+    print(f'{user_name}, you need to make a choice - rock[0], paper[1], scissors[2].\n')
+    print('Lets play! Enter only! relevant numbers: \n')
+    user_action()
 
 
 main()
