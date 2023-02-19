@@ -13,10 +13,20 @@ def name():
     return users_name
 
 
+class Action(IntEnum):
+    """
+    Created a class in which each action is tied to a number,
+    to avoid comparison errors.
+    """
+    ROCK = 0
+    PAPER = 1
+    SCISSORS = 2
+
+
 def user_action():
     """
     Accepts a value from the user and
-    matches it with the appropriete actions
+    check it on errors
     """
     while True:
         user_choise = ''
@@ -28,20 +38,20 @@ def user_action():
     return user_choise
 
 
-class Action(IntEnum):
+def computer_action():
     """
-    Created a class in which each action is tied to a number,
-    to avoid comparison errors.
+    Function in which computer makes random choice with import randint()
     """
-    ROCK = 0
-    PAPER = 1
-    SCISSORS = 2
+    computer_choice = random.randint(0, len(Action) - 1)
+    action = Action(computer_choice)
+    print(action)
 
 
 def main():
     """
     Run all program functions
     """
+    computer_action()
     print('     Rock Paper Scissors\n')
     print('--------------------------------\n')
     user_name = name()    
