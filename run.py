@@ -6,7 +6,6 @@ def name():
     """
     Entering a user name and checking its input
     """
-
     users_name = ""
     while len(users_name.strip()) < 1:
         users_name = input('Please, enter your name: ')
@@ -29,13 +28,13 @@ def user_action():
     check it on errors
     """
     while True:
-        user_choise = ''
+        user_choice = ''
         try:
-            user_choise = int(input('Please, make your choise: '))
+            user_choice = int(input('Please, make your choice: \n'))
             break
         except ValueError:
             print('Input error pleas select from 0, 1, or 2:\n ')
-    return user_choise
+    return user_choice
 
 
 def computer_action():
@@ -44,14 +43,13 @@ def computer_action():
     """
     computer_choice = random.randint(0, len(Action) - 1)
     action = Action(computer_choice)
-    print(action)
+    return action
 
 
 def main():
     """
     Run all program functions
     """
-    computer_action()
     print('     Rock Paper Scissors\n')
     print('--------------------------------\n')
     user_name = name()    
@@ -60,8 +58,8 @@ def main():
     print('* Rock wins against scissors.\n')
     print('* Scissors win against paper.\n')
     print('* Paper wins against rock.\n')
-    print(f'{user_name}, you need to make a choice - rock[0], paper[1], scissors[2].\n')
-    print('Lets play! Enter only! relevant numbers: \n')
+    print(f'Lets play, {user_name} ! Enter only relevant numbers: \n')
+    print('ROCK___[0], PAPER___[1], SCISSORS___[2].\n')
     choice = user_action()
     print(f'Your choice is {choice}')
 
