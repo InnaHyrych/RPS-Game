@@ -46,6 +46,29 @@ def computer_action():
     return action
 
 
+def comparison(user_action, computer_action):
+    """
+    Comparisonof user and computer choices to determine the winner.
+    """
+    if user_action == computer_action:
+        print('Draw')
+    elif computer_action == Action.ROCK:
+        if user_action == Action.PAPER:
+            print('Paper wrap rock. You win!')
+        else:
+            print('Rock brake scissors. You lose.')
+    elif computer_action == Action.PAPER:
+        if user_action == Action.ROCK:
+            print('Paper wrap rock. You lose.')
+        else:
+            print('Scissors cut paper. You win!')        
+    elif computer_action == Action.SCISSORS:
+        if user_action == Action.ROCK:
+            print('Rock brake scissors. You win!')
+        else:
+            print('Scissors cut paper. You lose.')      
+
+
 def main():
     """
     Run all program functions
@@ -58,10 +81,12 @@ def main():
     print('* Rock wins against scissors.\n')
     print('* Scissors win against paper.\n')
     print('* Paper wins against rock.\n')
-    print(f'Lets play, {user_name} ! Enter only relevant numbers: \n')
+    print(f'{user_name}, make your choise! Enter only relevant numbers: \n')
     print('ROCK___[0], PAPER___[1], SCISSORS___[2].\n')
-    choice = user_action()
-    print(f'Your choice is {choice}')
+    u_choice = user_action()
+    print(f'Your choice is {u_choice}')
+    c_choice = computer_action()
+    comparison(u_choice, c_choice)
 
 
 main()
