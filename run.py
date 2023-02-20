@@ -78,6 +78,19 @@ def comparison(user_action, computer_action):
             comp_action_list.append('lose')
 
 
+def winner_definition():
+    """
+    Determination of the winner by comparing lists of elections
+    as a result of three games
+    """
+    if len(user_action_list) > len(comp_action_list):
+        print('Congratilation! You are WINNER!')
+    elif len(user_action_list) > len(comp_action_list):
+        print('So sorry, this time luck is not on your side.')
+    elif len(user_action_list) == len(comp_action_list):
+        print('It is Draw!')
+
+
 def main():
     """
     Run all program functions
