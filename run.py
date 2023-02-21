@@ -12,7 +12,7 @@ def name():
     return users_name
 
 
-class Action(IntEnum):
+class Sample(IntEnum):
     """
     Created a class in which each action is tied to a number,
     to avoid comparison errors.
@@ -45,7 +45,7 @@ def computer_action():
     """
     Function in which computer makes random choice with import randint()
     """
-    computer_choice = random.randint(0, len(Action) - 1)
+    computer_choice = random.randint(0, len(Sample) - 1)
     return computer_choice
 
 
@@ -55,22 +55,22 @@ def comparison(user_action, computer_action):
     """
     if user_action == computer_action:
         print('It is Draw!')
-    elif computer_action == Action.ROCK:
-        if user_action == Action.PAPER:
+    elif computer_action == Sample.ROCK:
+        if user_action == Sample.PAPER:
             print('Paper wrap rock. You win!')
             user_action_list.append('win')
         else:
             print('Rock brake scissors. You lose.')
             comp_action_list.append('lose')
-    elif computer_action == Action.PAPER:
-        if user_action == Action.ROCK:
+    elif computer_action == Sample.PAPER:
+        if user_action == Sample.ROCK:
             print('Paper wrap rock. You lose.')
             comp_action_list.append('lose')
         else:
             print('Scissors cut paper. You win!')
             user_action_list.append('win')
-    elif computer_action == Action.SCISSORS:
-        if user_action == Action.ROCK:
+    elif computer_action == Sample.SCISSORS:
+        if user_action == Sample.ROCK:
             print('Rock brake scissors. You win!')
             user_action_list.append('win')
         else:
@@ -85,10 +85,22 @@ def winner_definition():
     """
     if len(user_action_list) > len(comp_action_list):
         print('Congratilation! You are WINNER!')
-    elif len(user_action_list) > len(comp_action_list):
+    elif len(user_action_list) < len(comp_action_list):
         print('So sorry, this time luck is not on your side.')
     elif len(user_action_list) == len(comp_action_list):
         print('It is Draw!')
+
+
+def question():
+    """
+    Determining whether user wants to continue or end the game
+    if continue, start game from the begining.
+    """
+    play_again = input('Do you want to play again? y/n: ')
+    if play_again.lower() != 'y':
+        print('By! Come back when you want to play again!')
+    else:
+        main()
 
 
 def main():
@@ -103,16 +115,17 @@ def main():
     print('* Rock wins against scissors.\n')
     print('* Scissors win against paper.\n')
     print('* Paper wins against rock.\n')
-    for i in range(3):  #code from "cyberforum.ru"
-        print(f'{user_name}, make your choise! Enter only relevant numbers: \n')
+    for i in range(3):  # [for i in range(3)] code from "cyberforum.ru"
+        print(f'{user_name}, make your choise! Enter only relevant numbers: ')
         print('ROCK___[0], PAPER___[1], SCISSORS___[2].\n')
         u_choice = user_action()
         print(f'Your choice is {u_choice}')
         c_choice = computer_action()
         comparison(u_choice, c_choice)
-        print(comp_action_list)  #del
-        print(user_action_list)  #del
+        print(comp_action_list)  # del
+        print(user_action_list)  # del
     winner_definition()
+    question()
 
 
 main()
