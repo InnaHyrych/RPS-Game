@@ -22,6 +22,9 @@ class Sample(IntEnum):
     SCISSORS = 2
 
 
+print(len(Sample))
+
+
 user_action_list = []
 comp_action_list = []
 
@@ -35,6 +38,8 @@ def user_action():
         user_choice = ''
         try:
             user_choice = int(input('Please, make your choice: \n'))
+            if user_choice not in (range(len(Sample))):
+                raise ValueError
             break
         except ValueError:
             print('Input error pleas select from 0, 1, or 2:\n ')
@@ -121,9 +126,8 @@ def main():
         u_choice = user_action()
         print(f'Your choice is {u_choice}')
         c_choice = computer_action()
+        print(f'Computer choice is {c_choice}')
         comparison(u_choice, c_choice)
-        print(comp_action_list)  # del
-        print(user_action_list)  # del
     winner_definition()
     question()
 
