@@ -22,9 +22,6 @@ class Sample(IntEnum):
     SCISSORS = 2
 
 
-print(len(Sample))
-
-
 user_action_list = []
 comp_action_list = []
 
@@ -37,13 +34,15 @@ def user_action():
     while True:
         user_choice = ''
         try:
-            user_choice = int(input('Please, make your choice: \n'))
+            user_choice = int(input('Please, make your choice: '))
             if user_choice not in (range(len(Sample))):
                 raise ValueError
             break
         except ValueError:
             print('Input error pleas select from 0, 1, or 2:\n ')
     return user_choice
+
+
 
 
 def computer_action():
@@ -54,32 +53,32 @@ def computer_action():
     return computer_choice
 
 
-def comparison(user_action, computer_action):
+def comparison(user_input, computer_input):
     """
     Comparisonof user and computer choices to determine the winner.
     """
-    if user_action == computer_action:
+    if user_input == computer_input:
         print('It is Draw!')
-    elif computer_action == Sample.ROCK:
-        if user_action == Sample.PAPER:
+    elif computer_input == Sample.ROCK:
+        if user_input == Sample.PAPER:
             print('Paper wrap rock. You win!')
             user_action_list.append('win')
         else:
-            print('Rock brake scissors. You lose.')
+            print('Rock brake scissors. Sorry, You lose.')
             comp_action_list.append('lose')
-    elif computer_action == Sample.PAPER:
-        if user_action == Sample.ROCK:
-            print('Paper wrap rock. You lose.')
+    elif computer_input == Sample.PAPER:
+        if user_input == Sample.ROCK:
+            print('Paper wrap rock. Sorry, You lose.')
             comp_action_list.append('lose')
         else:
             print('Scissors cut paper. You win!')
             user_action_list.append('win')
-    elif computer_action == Sample.SCISSORS:
-        if user_action == Sample.ROCK:
+    elif computer_input == Sample.SCISSORS:
+        if user_input == Sample.ROCK:
             print('Rock brake scissors. You win!')
             user_action_list.append('win')
         else:
-            print('Scissors cut paper. You lose.')
+            print('Scissors cut paper. Sorry, You lose.')
             comp_action_list.append('lose')
 
 
@@ -112,21 +111,23 @@ def main():
     """
     Run all program functions
     """
-    print('     Rock Paper Scissors\n')
+    print('     ROCK ** PAPER ** SCISSORS\n')
     print('--------------------------------\n')
     user_name = name()
     print(f'Hi, {user_name}, Welcome to our game!\n')
     print('     Remember:\n')
-    print('* Rock wins against scissors.\n')
-    print('* Scissors win against paper.\n')
-    print('* Paper wins against rock.\n')
+    print('* Rock beats Scissors, loses to paper and ties with rock.\n')
+    print('* Paper beats Rock, loses to scissors and ties with paper.\n')
+    print('* Scissors beats Paper, loses to rock and ties with scissors.\n')
     for i in range(3):  # [for i in range(3)] code from "cyberforum.ru"
         print(f'{user_name}, make your choise! Enter only relevant numbers: ')
         print('ROCK___[0], PAPER___[1], SCISSORS___[2].\n')
         u_choice = user_action()
-        print(f'Your choice is {u_choice}')
+        result = images(u_choice)
+        print(f'Your choice is {result}')
         c_choice = computer_action()
-        print(f'Computer choice is {c_choice}')
+        c_result = images(c_choice)
+        print(f'Computer choice is {c_result}')
         comparison(u_choice, c_choice)
     winner_definition()
     question()
