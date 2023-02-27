@@ -43,14 +43,44 @@ def user_action():
     return user_choice
 
 
-
-
 def computer_action():
     """
     Function in which computer makes random choice with import randint()
     """
     computer_choice = random.randint(0, len(Sample) - 1)
     return computer_choice
+
+
+def images(required_choice):  # "hands pictures" from https://hackernoon.com/
+    """
+    Displaing a picture of a hand after selecting a user and a computer
+    """
+    if required_choice == 0:
+        choice_text = '''ROCK\n
+            _______
+        ---'   ____)
+            (_____)
+            (_____)
+            (____)
+        ---.(___)
+                '''
+    if required_choice == 1:
+        choice_text = '''PAPER\n
+            ______
+        ---'  ____)____
+                 ______)
+                 _______)
+                _______)
+        ---.__________)'''
+    if required_choice == 2:
+        choice_text = '''SCISSORS\n
+        ______
+    ---'  ____)____
+             ______)
+           _________)
+          (____)
+    ---.__(___) '''
+    return choice_text
 
 
 def comparison(user_input, computer_input):
@@ -121,7 +151,9 @@ def main():
     print('* Scissors beats Paper, loses to rock and ties with scissors.\n')
     for i in range(3):  # [for i in range(3)] code from "cyberforum.ru"
         print(f'{user_name}, make your choise! Enter only relevant numbers: ')
-        print('ROCK___[0], PAPER___[1], SCISSORS___[2].\n')
+        print('Enter {0}, if your choice is ROCK.\n')
+        print('Enter {1}, if your choice is PAPER.\n')
+        print('Enter {2}, if your choice is SCISSORS.\n')
         u_choice = user_action()
         result = images(u_choice)
         print(f'Your choice is {result}')
