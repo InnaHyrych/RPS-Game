@@ -120,7 +120,7 @@ def winner_definition():
     if len(user_action_list) > len(comp_action_list):
         print('Congratilation! You are WINNER!')
     elif len(user_action_list) < len(comp_action_list):
-        print('So sorry, this time luck is not on your side.')
+        print('So sorry, at this time luck is not on your side.')
     elif len(user_action_list) == len(comp_action_list):
         print('It is Draw!')
 
@@ -150,10 +150,10 @@ def main():
     print('* Paper beats Rock, loses to scissors and ties with paper.\n')
     print('* Scissors beats Paper, loses to rock and ties with scissors.\n')
     for i in range(3):  # [for i in range(3)] code from "cyberforum.ru"
-        print(f'{user_name}, make your choise! Enter only relevant numbers: ')
-        print('Enter {0}, if your choice is ROCK.\n')
-        print('Enter {1}, if your choice is PAPER.\n')
-        print('Enter {2}, if your choice is SCISSORS.\n')
+        print(f'{user_name}, make your choice! Enter only relevant number: \n')
+        print('    Enter {0}, if your choice is ROCK.\n')
+        print('    Enter {1}, if your choice is PAPER.\n')
+        print('    Enter {2}, if your choice is SCISSORS.\n')
         u_choice = user_action()
         result = images(u_choice)
         print(f'Your choice is {result}')
