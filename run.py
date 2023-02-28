@@ -8,7 +8,7 @@ def name():
     """
     users_name = ""
     while len(users_name.strip()) < 1:
-        users_name = input('Please, enter your name: ')
+        users_name = input('Please, enter your name:\n')
     return users_name
 
 
@@ -34,12 +34,12 @@ def user_action():
     while True:
         user_choice = ''
         try:
-            user_choice = int(input('Please, make your choice: '))
+            user_choice = int(input('Please, make your choice:\n'))
             if user_choice not in (range(len(Sample))):
                 raise ValueError
             break
         except ValueError:
-            print('Input error pleas select from 0, 1, or 2:\n ')
+            print('Input error pleas select from 0, 1, or 2: ')
     return user_choice
 
 
@@ -130,7 +130,7 @@ def question():
     Determining whether user wants to continue or end the game
     if continue, start game from the begining.
     """
-    play_again = input('Do you want to play again? y/n: ')
+    play_again = input('Do you want to play again? y/n:\n')
     if play_again.lower() != 'y':
         print('By! Come back when you want to play again!')
     else:
