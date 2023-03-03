@@ -94,11 +94,11 @@ def comparison(user_input, computer_input):
             print('Paper wrap rock. You win!')
             user_action_list.append('win')
         else:
-            print('Rock brake scissors. Sorry, You lose.')
+            print('Rock brake scissors. Sorry, You lost this round.')
             comp_action_list.append('lose')
     elif computer_input == Sample.PAPER:
         if user_input == Sample.ROCK:
-            print('Paper wrap rock. Sorry, You lose.')
+            print('Paper wrap rock. Sorry, You lost this round.')
             comp_action_list.append('lose')
         else:
             print('Scissors cut paper. You win!')
@@ -108,7 +108,7 @@ def comparison(user_input, computer_input):
             print('Rock brake scissors. You win!')
             user_action_list.append('win')
         else:
-            print('Scissors cut paper. Sorry, You lose.')
+            print('Scissors cut paper. Sorry, You lost this round.')
             comp_action_list.append('lose')
 
 
@@ -117,12 +117,21 @@ def winner_definition():
     Determination of the winner by comparing lists of elections
     as a result of three games
     """
-    if len(user_action_list) > len(comp_action_list):
-        print('Congratilation! You are WINNER!')
+    text1 = '###############################'
+    if len(user_action_list) > len(comp_action_list):        
+        text2 = 'Congratulation! You are the winner!'
+        text3 = text2.upper()
+        print(text1)
+        print(text3)
+        print(text1)
     elif len(user_action_list) < len(comp_action_list):
+        print(text1)
         print('So sorry, at this time luck is not on your side.')
+        print(text1)
     elif len(user_action_list) == len(comp_action_list):
+        print(text1)
         print('It is Draw!')
+        print(text1)
 
 
 def question():
